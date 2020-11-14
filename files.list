@@ -1,0 +1,6 @@
+### fname                               outputname             isdata   xsec            itype	nevents
+/hdfs/store/user/mwadud/share/eleFakes/ntuples_10_26_2020/SinglePhotonRun2017Full.root	data.root	1	1	100 1
+/hdfs/store/user/mwadud/share/eleFakes/ntuples_10_26_2020/DYJetsToEEM50LTbinned100To2005fLO13TeVmadgraphpythia8.root	dy100to200.root 0 93.66 -1 2227117.00000000000000000000
+/hdfs/store/user/mwadud/share/eleFakes/ntuples_10_26_2020/DYJetsToEEM50LTbinned200To4005fLO13TeVmadgraphpythia8.root	dy200to400.root 0 4.135 -2 686444.00000000000000000000
+/hdfs/store/user/mwadud/share/eleFakes/ntuples_10_26_2020/DYJetsToEEM50LTbinned400To8005fLO13TeVmadgraphpythia8.root	dy400to800.root 0 0.2457 -3 950278.00000000000000000000
+/hdfs/store/user/mwadud/share/eleFakes/ntuples_10_26_2020/DYJetsToEEM50LTbinned800To20005fLO13TeVmadgraphpythia8.root	dy800to2000.root 0 0.009936 -4 757960.00000000000000000000
