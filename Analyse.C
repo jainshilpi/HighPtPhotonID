@@ -116,9 +116,11 @@ void Analyse::Loop(string fnamein, string fnameout, bool isData, double xsec, in
   hmap["neIso"] = new TH1F("neIso","neIso", 50,0,100);
 
   hmap["pt"] = new TH1F("pt","pt", 100,200,1000);
-  hmap["eta"] = new TH1F("eta","eta", 100,-1.5,1.5);
+  hmap["eta"] = new TH1F("eta","eta", 50,-1.5,1.5);
   hmap["tagpt"] = new TH1F("tagpt","tagpt", 200,20,1000);
-  hmap["tageta"] = new TH1F("tageta","tageta", 150,-2.5,2.5);
+  hmap["tageta"] = new TH1F("tageta","tageta", 50,-2.5,2.5);
+
+  hmap["phoidmva_egm"] = new TH1F("phoidmva_egm","phoidmva_egm", 100,0,1);
 
   for(map<string,TH1F*>::iterator it = hmap.begin(); it != hmap.end(); ++it) {
      hmap[it->first]->Sumw2();
@@ -320,6 +322,7 @@ void Analyse::Loop(string fnamein, string fnameout, bool isData, double xsec, in
       hmap["tagpt"]->Fill(ele->Pt(), weight);
       hmap["tageta"]->Fill(ele->Eta(), weight);
 
+      hmap["phoidmva_egm"]->Fill(phoIDMVA->at(phoInd), weight);
       ///check if this photon is actually reconstructed as an electron
       ////10th June, 2020 - check which electron is tracker driven and ECAL driven
       ///consider only those photons which are matched to ECAL tracker electrons
@@ -483,7 +486,8 @@ int* Analyse::selectPho(int &nGoodPho, int *phoIndArr){
     if(idType=="95") phoID = pho_BDT_ID_bits->at(ipho)>>3&1; ///90
     */
 
-    if(phoHoverE->at(ipho) > cutHoE[reg]) continue;
+    //if(phoHoverE->at(ipho) > cutHoE[reg]) continue;
+    if(phoHoverE->at(ipho) > 0.05) continue;
 
     phoIndArr[igoodpho] = ipho;
     igoodpho++;
